@@ -41,9 +41,10 @@ class Screen:
         clock = pygame.time.Clock()
         clock.tick(fps)
         
-    def check_close_window(self, close:bool):
+    def check_close_window(self, close:bool, socket):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                socket.close()
                 close = True
         pygame.quit
         return close
